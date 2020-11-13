@@ -58,7 +58,7 @@ console.log(`Le livre avec l'id 873495 est ${bookId.title}`);
     Supprime le livre avec l'ID: 133712;
  =======================================*/
 
-books.forEach(book =>  book.id == 133712 ? delete book.b : null)
+books.forEach(book =>  book.id == 133712 ? delete book : null)
 
 
  /*=================================================
