@@ -14,7 +14,7 @@ const books = [
   ];
 
 
-  /*=======================================
+  /*=====================================
     Est-ce que tous les livres ont été 
     au moins empruntés une fois ?
  =======================================*/
@@ -29,9 +29,9 @@ if (bookRented == true){
     console.log('tous les livres ont été au moins empruntés une fois')
 }
 
- /*=======================================
+ /*======================================
     Quel est livre le plus emprunté ?
- =======================================*/
+ ======================================*/
 
 let maxRentedBook = books.reduce((max, book) => max.rented > book.rented ? max : book);
 console.log(`Le livre le plus loué est ${maxRentedBook.title}`);
@@ -43,7 +43,7 @@ console.log(`Le livre le plus loué est ${maxRentedBook.title}`);
 let minRentedBook = books.reduce((min, book) => min.rented < book.rented ? min : book);
 console.log(`Le livre le moin loué est ${minRentedBook.title}`);
 
- /*=======================================
+ /*=====================================
     Trouve le livre avec l'ID: 873495 ;
  =======================================*/
 
@@ -61,22 +61,14 @@ console.log(`Le livre avec l'id 873495 est ${bookId.title}`);
 books.forEach(book =>  book.id == 133712 ? delete book.b : null)
 
 
- function compareTitles( a, b ) {
-    if ( a.title < b.title ){
-      return -1;
-    }
-    if ( a.title > b.title ){
-      return 1;
-    }
-    return 0;
-  }
-  books.sort(compareTitles)
-  console.log(`Tableau des livres triés par ordre alphabétique de titre :`);
-  console.log(books)
-  let output = "<h5>Livres classés par ordre alphabétique par titre: :</h5> <br />";
-  for (let i =0; i < books.length; i++){
-    output += books[i].title + ", id:  " + books[i].id + ", rented " + books[i].rented + " times  <br />";
-  }
-  $('#result6').html(output);
+ /*=================================================
+	Trie les livres par ordre alphabétique 
+	(sans celui avec l'ID 133712 car il est supprimé).
+ ==================================================*/
 
-});
+ arr = []
+ books.forEach(book => {
+	 arr.push(book.title)
+ })
+	arr.shift()
+ 	console.log(arr.sort())
